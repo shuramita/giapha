@@ -368,7 +368,12 @@ function person_name($personDb){
 			}
 		}
 		unset($colour);
-
+		$name_array["fullname"] = "";
+		if($personDb->pers_patronym != ""){
+			$name_array["fullname"].=$personDb->pers_patronym.', ';
+		}
+		$name_array["fullname"].=$personDb->pers_lastname." ".$personDb->pers_firstname;
+		$name_array["standard_name"] = $name_array["fullname"];
 	}
 	else{
 		$name_array["show_name"]=true;

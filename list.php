@@ -46,7 +46,9 @@ function show_person($personDb){
 			// Don't show a "-" by pers_patronymes
 			if (!isset($_GET['pers_patronym'])){ $index_name="-&nbsp;&nbsp;"; }
 		}
-		$index_name.=$name["index_name_extended"].$name["colour_mark"];
+//		$index_name.=$name["index_name_extended"].$name["colour_mark"];
+		$index_name.=$name["fullname"];
+//		var_dump($name);
 	}
 
 	echo '<tr>';
@@ -155,7 +157,7 @@ function show_person($personDb){
 				elseif ($x==2) echo __('3rd');
 				elseif ($x>2) echo ($x+1).__('th');
 			}
-			echo ' '.$relation_short.' '.rtrim($name["standard_name"]).'</span>';
+			echo ' '.$relation_short.' '.rtrim($name["fullname"]).'</span>';
 		}
 	}
 	// *** End spouse/ partner ***
